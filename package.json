@@ -1,0 +1,40 @@
+{
+  "name": "node-lib-cli",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "author": "sschen86@163.com",
+  "license": "MIT",
+  "scripts": {},
+  "bin": {
+    "node-lib": "bin/node-lib.js"
+  },
+  "devDependencies": {
+    "@smartx/eslint-config-tentative": "^1.2.1"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "commander": "^5.0.0",
+    "through2": "^3.0.1",
+    "vinyl-fs": "^3.0.3"
+  },
+  "keywords": [
+    "node-lib",
+    "node-lib-cli"
+  ],
+  "files": [
+    "bin/",
+    "lib/",
+    "template/",
+    "package.json",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "bugs": {
+    "url": "https://github.com/sschen86/node-lib-cli/issues"
+  },
+  "homepage": "https://github.com/sschen86/node-lib-cli#readme",
+  "nodeLibConfig": {
+    "env": "node",
+    "umd": true
+  }
+}
