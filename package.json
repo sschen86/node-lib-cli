@@ -1,7 +1,7 @@
 {
   "name": "node-lib-cli",
-  "version": "0.0.2",
-  "main": "./index.js",
+  "version": "0.0.9",
+  "main": "index.js",
   "author": "sschen86@163.com",
   "license": "MIT",
   "scripts": {},
@@ -24,6 +24,7 @@
   "files": [
     "bin/",
     "lib/",
+    "scripts/",
     "template/",
     "package.json",
     "CHANGELOG.md",

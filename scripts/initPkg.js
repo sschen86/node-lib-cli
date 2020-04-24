@@ -7,6 +7,7 @@ const chalk = require('chalk')
 const cwd = process.cwd()
 
 module.exports = function ({ pkgName, browser, umd }) {
+
     if (!/^([\w.-]+)$/.test(pkgName)) {
         return console.warn(chalk.red('init failure: pkgName not allowed!'))
     }
@@ -34,7 +35,12 @@ module.exports = function ({ pkgName, browser, umd }) {
             const pkgc = require(pkgcPath)
             pkgc.name = pkgName
             pkgc.repository = `https://github.com/sschen86/${pkgName}.git`
-
+            pkgc.files = [
+                "dist/",
+                "README.md",
+                "CHANGELOG.md",
+                "LICENSE"
+            ]
             if (browser) {
                 // pkgc.scripts.dev = ''
             } else {
