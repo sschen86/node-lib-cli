@@ -8,15 +8,12 @@
   "scripts": {
     "dev": "nodemon --exec babel-node ./example/main ",
     "dev2": "rollup -c ./rollup.config.dev.js -w",
-    "build": "rollup -c ./rollup.config.build.js",
+    "build": "rm -rf dist/* && rollup -c ./rollup.config.build.js",
     "test": "jest test"
   },
   "devDependencies": {
     "node-lib-mods": "^0.0.3"
   },
   "dependencies": {},
-  "keywords": [],
-  "nodeLibConfig": {
-    "umd": false
-  }
+  "keywords": []
 }

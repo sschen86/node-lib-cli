@@ -3,14 +3,16 @@ import cjs from '@rollup/plugin-commonjs'
 import buble from '@rollup/plugin-buble'
 import json from '@rollup/plugin-json'
 // import { terser } from 'rollup-plugin-terser'
-import serve from 'rollup-plugin-serve'
+import hotserve from 'rollup-plugin-hotserve'
+import node from 'rollup-plugin-node-builtins'
+import nodeGlobals from 'rollup-plugin-node-globals'
 
 export default {
-    input: './example/main.js', // 入口文件
+    input: './playground/index.js', // 入口文件
     output: { // 出口文件
-        file: './temp/main.bundle.js',
+        file: './temp/index.bundle.js',
         format: 'iife',
-        name: 'nodeLibDev',
+        name: 'playground',
         sourcemap: true,
     },
     plugins: [
@@ -22,12 +24,20 @@ export default {
             },
         }),
         json(),
-        buble(),
+        buble({
+            objectAssign: 'object.assgin',
+            transforms: {
+                // asyncAwait: false
+            },
+        }),
+        node(),
+        nodeGlobals(),
         // terser(),
-        serve({ // 使用开发服务插件
+        hotserve({ // 使用开发服务插件
             port: 3001,
             // 设置 exmaple的访问目录和dist的访问目录
-            contentBase: [ './example', './temp' ],
+            contentBase: [ './playground', './temp' ],
+            hotReload: /\\playground\\[^\\/]+\.js$/,
         }),
     ],
     // external: ['lodash']

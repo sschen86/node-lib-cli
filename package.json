@@ -1,6 +1,6 @@
 {
   "name": "node-lib-cli",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "index.js",
   "author": "sschen86@163.com",
   "license": "MIT",

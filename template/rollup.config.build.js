@@ -3,6 +3,8 @@ import cjs from '@rollup/plugin-commonjs'
 import buble from '@rollup/plugin-buble'
 import json from '@rollup/plugin-json'
 import { terser } from 'rollup-plugin-terser'
+import node from 'rollup-plugin-node-builtins'
+import nodeGlobals from 'rollup-plugin-node-globals'
 
 
 export default {
@@ -19,12 +21,12 @@ export default {
             format: 'es',
             sourcemap: true,
         },
-        {
+        /*{
             file: 'dist/index.umd.js',
             format: 'umd',
             name: 'mylib',
             sourcemap: true,
-        },
+        },*/
     ],
     plugins: [
         cjs(),
@@ -35,8 +37,15 @@ export default {
             },
         }),
         json(),
-        buble(),
+        buble({
+            objectAssign: 'Object.assign',
+            transforms: { 
+                //asyncAwait: false
+            },
+        }),
+        node(),
+        nodeGlobals(),
         terser(),
     ],
-    external: [ 'acorn' ],
+    external: [  ],
 }
