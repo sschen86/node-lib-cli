@@ -6,13 +6,13 @@
   "author": "sschen86@163.com",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec babel-node ./example/main ",
+    "dev": "nodemon --exec babel-node ./playground/index",
     "dev2": "rollup -c ./rollup.config.dev.js -w",
     "build": "rm -rf dist/* && rollup -c ./rollup.config.build.js",
     "test": "jest test"
   },
   "devDependencies": {
-    "node-lib-mods": "^0.0.4"
+    "node-lib-mods": "^0.0.5"
   },
   "dependencies": {},
   "keywords": []

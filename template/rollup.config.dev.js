@@ -25,7 +25,7 @@ export default {
         }),
         json(),
         buble({
-            objectAssign: 'object.assgin',
+            objectAssign: 'Object.assgin',
             transforms: {
                 // asyncAwait: false
             },

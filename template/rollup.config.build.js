@@ -26,7 +26,7 @@ export default {
             format: 'umd',
             name: 'mylib',
             sourcemap: true,
-        },*/
+        }, */
     ],
     plugins: [
         cjs(),
@@ -39,13 +39,13 @@ export default {
         json(),
         buble({
             objectAssign: 'Object.assign',
-            transforms: { 
-                //asyncAwait: false
+            transforms: {
+                // asyncAwait: false
             },
         }),
         node(),
         nodeGlobals(),
         terser(),
     ],
-    external: [  ],
+    external: [ ],
 }
