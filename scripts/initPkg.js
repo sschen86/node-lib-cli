@@ -7,12 +7,20 @@ const chalk = require('chalk')
 const cwd = process.cwd()
 
 module.exports = function ({ pkgName, browser, umd }) {
-
-    if (!/^([\w.-]+)$/.test(pkgName)) {
+    if (!/^(?:@[a-z0-9-*~][a-z0-9-*._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/.test(pkgName)) {
         return console.warn(chalk.red('init failure: pkgName not allowed!'))
     }
 
-    const projectPath = path.join(cwd, pkgName)
+    let dirName
+    let orgName
+
+    if (pkgName.includes('@')) {
+        ([ , orgName, dirName ] = pkgName.match(/^@(.+?)\/(.+)$/))
+    } else {
+        dirName = pkgName
+    }
+
+    const projectPath = path.join(cwd, dirName)
 
     if (fs.existsSync(projectPath)) {
         return console.warn(chalk.red('init failure: project has exists!'))
@@ -34,12 +42,12 @@ module.exports = function ({ pkgName, browser, umd }) {
 
             const pkgc = require(pkgcPath)
             pkgc.name = pkgName
-            pkgc.repository = `https://github.com/sschen86/${pkgName}.git`
+            pkgc.repository = orgName ? `https://github.com/${orgName.replace(/\./g, '-')}/${dirName}.git` : `https://github.com/sschen86/${dirName}.git`
             pkgc.files = [
-                "dist/",
-                "README.md",
-                "CHANGELOG.md",
-                "LICENSE"
+                'dist/',
+                'README.md',
+                'CHANGELOG.md',
+                'LICENSE',
             ]
             if (browser) {
                 // pkgc.scripts.dev = ''

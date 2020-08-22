@@ -6,6 +6,8 @@ import json from '@rollup/plugin-json'
 import hotserve from 'rollup-plugin-hotserve'
 import node from 'rollup-plugin-node-builtins'
 import nodeGlobals from 'rollup-plugin-node-globals'
+// import { babel } from '@rollup/plugin-babel'
+import replace from '@rollup/plugin-replace'
 
 export default {
     input: './playground/index.js', // 入口文件
@@ -16,6 +18,9 @@ export default {
         sourcemap: true,
     },
     plugins: [
+        replace({
+            'process.env.NODE_ENV': JSON.stringify('development'),
+        }),
         cjs(),
         resolve({
             // 将自定义选项传递给解析插件
@@ -23,6 +28,17 @@ export default {
                 moduleDirectory: 'node_modules',
             },
         }),
+        // babel({
+        //     presets: [
+        //         '@babel/preset-env',
+        //         '@babel/preset-react',
+        //     ],
+        //     plugins: [
+        //         '@babel/plugin-proposal-class-properties',
+        //     ],
+        //     // exclude: 'node_modules/**', // 只编译源代码
+        //     // runtimeHelpers: true,
+        // }),
         json(),
         buble({
             objectAssign: 'Object.assgin',

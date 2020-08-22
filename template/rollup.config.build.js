@@ -5,6 +5,8 @@ import json from '@rollup/plugin-json'
 import { terser } from 'rollup-plugin-terser'
 import node from 'rollup-plugin-node-builtins'
 import nodeGlobals from 'rollup-plugin-node-globals'
+// import { babel } from '@rollup/plugin-babel'
+import replace from '@rollup/plugin-replace'
 
 
 export default {
@@ -21,7 +23,7 @@ export default {
             format: 'es',
             sourcemap: true,
         },
-        /*{
+        /* {
             file: 'dist/index.umd.js',
             format: 'umd',
             name: 'mylib',
@@ -36,12 +38,21 @@ export default {
                 moduleDirectory: 'node_modules',
             },
         }),
+        // babel({
+        //     presets: [
+        //         '@babel/preset-env',
+        //         '@babel/preset-react',
+        //     ],
+        // }),
         json(),
         buble({
             objectAssign: 'Object.assign',
             transforms: {
                 // asyncAwait: false
             },
+        }),
+        replace({
+            'process.env.NODE_ENV': JSON.stringify('production'),
         }),
         node(),
         nodeGlobals(),
