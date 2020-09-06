@@ -1,19 +1,30 @@
 {
-  "name": "pkgname",
+  "name": "pkgName",
   "version": "0.0.1",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "author": "sschen86@163.com",
   "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "test996": "^0.0.3"
+  },
   "scripts": {
-    "dev": "nodemon --exec babel-node ./playground/index",
-    "dev2": "rollup -c ./rollup.config.dev.js -w",
-    "build": "rm -rf dist/* && rollup -c ./rollup.config.build.js",
+    "dev": "npm run dev-browser",
+    "dev-node": "nodemon --exec babel-node ./playground/index",
+    "dev-browser": "rollup -c ./config/rollup.dev.js -w",
+    "build": "rimraf dist && rollup -c ./config/rollup.build.js",
+    "deploy": "npm run test && npm run build && npm version patch && npm publish --access=public",
     "test": "jest test"
   },
-  "devDependencies": {
-    "node-lib-mods": "^0.0.5"
-  },
-  "dependencies": {},
-  "keywords": []
+  "keywords": [
+    "@shushu.pro"
+  ],
+  "repository": "https://github.com/shushu-pro/mockv.git",
+  "files": [
+    "dist/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ]
 }

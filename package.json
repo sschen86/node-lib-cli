@@ -4,12 +4,14 @@
   "main": "index.js",
   "author": "sschen86@163.com",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "deploy": "npm version patch && npm publish --access=public"
+  },
   "bin": {
     "node-lib": "bin/node-lib.js"
   },
   "devDependencies": {
-    "@smartx/eslint-config-tentative": "^1.2.1"
+    "@shushu.pro/eslint-config-all": "^0.0.1"
   },
   "dependencies": {
     "chalk": "^4.0.0",

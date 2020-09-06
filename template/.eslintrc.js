@@ -1,6 +1,9 @@
 module.exports = {
-    extends: [
-        '@smartx/eslint-config-tentative',
-    ],
-    root: true
+  root: true,
+  extends: '@shushu.pro/all',
+  env: {
+    jest: true,
+    node: true,
+    browser: true,
+  },
 }

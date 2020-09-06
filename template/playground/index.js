@@ -1,3 +1,3 @@
-import lib from '../src'
+import lib from '../src/'
 
-console.info('hello', lib)
+console.info(process.env.NODE_ENV, lib)

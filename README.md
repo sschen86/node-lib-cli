@@ -24,7 +24,8 @@ cd projectName & npm install # 安装依赖包
 ### 项目脚本指令
 
 ```
-dev: 使用nodemon进行开发
-dev2：使用rollup-serve启动服务器进行开发
+dev: 在浏览器端进行开发调试
+dev-node：在node端使用nodemon进行开发调试
 build：构建输出文件，输出esm，cjs，umd三种格式的文件
+deploy：发布新版本
 ```
