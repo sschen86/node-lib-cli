@@ -20,11 +20,5 @@
   "keywords": [
     "@shushu.pro"
   ],
-  "repository": "https://github.com/shushu-pro/mockv.git",
-  "files": [
-    "dist/",
-    "README.md",
-    "CHANGELOG.md",
-    "LICENSE"
-  ]
+  "repository": "https://github.com/shushu-pro/mockv.git"
 }
